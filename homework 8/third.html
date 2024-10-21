@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="contact-page">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contact-form" novalidate>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                <div class="error-message" id="name-error" style="display:none;"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                <div class="error-message" id="email-error" style="display:none;"></div>
+            </div>
+            <div class="form-group">
+                <label for="terms">Accept Terms of Agreement:</label><br>
+                <input type="radio" id="yes" name="terms" value="yes">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="no" name="terms" value="no">
+                <label for="no">No</label>
+                <div class="error-message" id="terms-error" style="display:none;"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <p><a href="index.html">Back to Home</a> | <a href="second.html">Read the Story</a></p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').on('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting
+                let hasError = false;
+
+                // Validate Name
+                const name = $('#name').val();
+                if (!name) {
+                    $('#name').addClass('error');
+                    $('#name-error').text('Name is required.').show();
+                    $('#name').focus();
+                    hasError = true;
+                } else {
+                    $('#name').removeClass('error');
+                    $('#name-error').hide();
+                }
+
+                // Validate Email
+                const email = $('#email').val();
+                if (!email) {
+                    $('#email').addClass('error');
+                    $('#email-error').text('Email is required.').show();
+                    if (!hasError) {
+                        $('#email').focus();
+                        hasError = true;
+                    }
+                } else {
+                    $('#email').removeClass('error');
+                    $('#email-error').hide();
+                }
+
+                // Validate Terms
+                const terms = $('input[name="terms"]:checked').val();
+                if (!terms) {
+                    $('#terms-error').text('You must accept the terms.').show();
+                    if (!hasError) {
+                        $('input[name="terms"]').first().focus();
+                        hasError = true;
+                    }
+                } else {
+                    $('#terms-error').hide();
+                }
+
+                if (!hasError) {
+                    // If there are no errors, submit the form
+                    this.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

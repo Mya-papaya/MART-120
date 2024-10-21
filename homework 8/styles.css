@@ -1,0 +1,93 @@
+/* Embedded styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+/* Index Page */
+body.index-page {
+    background-color: #f0f8ff;
+}
+
+/* Story Page */
+body.story-page {
+    background-image: url('coralinebackground.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.story-page h1 {
+    text-align: center;
+    color: #f39c12;
+}
+
+.story-page p {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.story-image {
+    width: 40%;
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contact Page */
+body.contact-page {
+    background-color: #fafafa;
+}
+
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Class Selectors */
+.highlight {
+    background-color: #f39c12;
+    color: white;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* ID Selectors */
+#main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+#nav-links a {
+    color: #3498db;
+}
+
+/* New Error Styles */
+.form-control.error {
+    border-color: red; /* Red border for error fields */
+}
+
+.error-message {
+    color: red; /* Color for error messages */
+    font-size: 0.9em; /* Slightly smaller font for error messages */
+    margin-top: 5px;
+}
+
+/* CSS to highlight the input fields in red when there's an error */
+.error {
+    border: 2px solid red; /* Red border for error state */
+    background-color: #ffe6e6; /* Light red background for better visibility */
+}
+
+.error {
+    border: 2px solid red !important; /* Ensure that this style takes precedence */
+}
